@@ -1,4 +1,5 @@
-import { Component,Input } from '@angular/core';
+import { Component,HostBinding,Input } from '@angular/core';
+import { DestinoRango } from '../models/DestinoRango.model';
 
 @Component({
   selector: 'app-destino-subir',
@@ -6,10 +7,12 @@ import { Component,Input } from '@angular/core';
   styleUrls: ['./destino-subir.component.css']
 })
 export class DestinoSubirComponent {
-  @Input() nombre: string;
+  @Input()
+  rango!: DestinoRango;
+  @HostBinding ('attr.class') cssClass = 'col-md-4'
 
   constructor() {
-    this.nombre = 'nombre por defecto';
   }
 
 }
+

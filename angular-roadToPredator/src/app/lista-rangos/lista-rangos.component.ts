@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DestinoRango } from '../models/DestinoRango.model';
 
 @Component({
   selector: 'app-lista-rangos',
@@ -6,10 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./lista-rangos.component.css']
 })
 export class ListaRangosComponent {
-  rangos: string[];
+  rangos: DestinoRango[];
 
   constructor() {
-    this.rangos = ['Principiante','bronce','plata','oro','platino','damante','maestro','Predator'];
+    this.rangos = [];
+  }
+
+  guardar(nombre: string, url:string ): boolean{
+    this.rangos.push(new DestinoRango(nombre, url));
+    return false;
+
   }
 
 }

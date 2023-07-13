@@ -1,1 +1,34 @@
-<app-destino-subir *ngFor="let x of rangos" [nombre] = "x" ></app-destino-subir>
+<div class="containe content">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <span class="anchor" id="`formLogin"></span>
+
+            <!-- Login card-->
+            <div class="card card-outline-secundary">
+                <div class="header">
+                    <h3 class="mb-0">RankList</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Ingresar Nombre..." #nombre> 
+                        </div>
+                        <div class="mb-3">
+                            <label for="Imagen url">Imagen Urk</label>
+                            <input type="text" class="form-control" id="ImagenUrl" placeholder="Ingresar Url..." #url> 
+                        </div>
+                        <button type="submit" class="btn btn-primary"(click)="guardar(nombre.value,url.value)" >Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="mb-5">
+
+
+    <div class="row row-flex">
+        <app-destino-subir *ngFor="let r of rangos" [rango]="r"></app-destino-subir>
+    </div>
+</div>
