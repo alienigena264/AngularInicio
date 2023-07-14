@@ -1,4 +1,4 @@
-import { Component,HostBinding,Input } from '@angular/core';
+import { Component,EventEmitter,HostBinding,Input, Output } from '@angular/core';
 import { DestinoRango } from '../models/DestinoRango.model';
 
 @Component({
@@ -7,12 +7,21 @@ import { DestinoRango } from '../models/DestinoRango.model';
   styleUrls: ['./destino-subir.component.css']
 })
 export class DestinoSubirComponent {
-  @Input()
-  rango!: DestinoRango;
-  @HostBinding ('attr.class') cssClass = 'col-md-4'
+  @Input()rango!: DestinoRango;
+  @Input()position!: number;
+  @HostBinding ('attr.class') cssClass = 'col-md-4';
+  @Output() clicked: EventEmitter<DestinoRango>;
+  
 
   constructor() {
+    this.clicked = new EventEmitter();
   }
+
+  ir() {
+    this.clicked.emit(this.rango);
+    return false;
+  }
+
 
 }
 

@@ -1,9 +1,13 @@
-export class DestinoRango{
-    nombre:string
-    url:string
-
-    constructor(nombre:string, url:string){
-        this.nombre = nombre
-        this.url = url
+export class DestinoRango {
+    private selected: boolean = false;
+    public servicios: string[];
+    constructor(public nombre: string, public url: string) {
+        this.servicios = ['Pileta','Desayuno']
+    }
+    isSelected() {
+        return this.selected;
+    }
+    setSelected(s:boolean) {
+        this.selected = s;
     }
 }

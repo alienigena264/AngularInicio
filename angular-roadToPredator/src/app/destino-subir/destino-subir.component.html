@@ -3,13 +3,25 @@
         <img src={{rango.url}}
             alt="..">
         <span>
-            <h4>{{rango.nombre}}</h4>
+            <h4>{{position}}</h4>
         </span>
     </div>
     <div class="card-desc">
         <h3>{{rango.nombre}}</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem ipsam sapiente nisi in aliquid culpa sed
-            deserunt eum nam quas qui eos exercitationem, facere quidem vitae, earum molestias quaerat temporibus?</p>
-        <a href="#" class="btn-card">Read</a>
+        <p>Servicios</p>
+        <ul>
+            <li *ngFor="let s of rango.servicios">
+                <span [ngSwitch] = 's'>
+                    <i *ngSwitchCase="'Desayuno'" style="color: red;"> {{s}}</i>
+                    <i *ngSwitchDefault> {{s}}</i>
+                </span>
+            </li>
+        </ul>
+        <a href="#" class="btn-card"(click)="ir()" >Ir!</a>
+        <span *ngIf="rango.isSelected()" >
+            <!-- El ngNonBindable sirve para indicar que todo lo que vayamos a poner se interprete directo y no como angular-->
+            <span ngNonBindable>- {{PREFERIDO}} -</span>
+            <a [routerLink]="['/destino']">Destino</a>
+        </span>
     </div>
 </div>

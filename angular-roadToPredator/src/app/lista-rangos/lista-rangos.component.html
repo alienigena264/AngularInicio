@@ -12,13 +12,15 @@
                     <form>
                         <div class="mb-3">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Ingresar Nombre..." #nombre> 
+                            <input type="text" class="form-control" id="nombre" placeholder="Ingresar Nombre..."
+                                #nombre>
                         </div>
                         <div class="mb-3">
                             <label for="Imagen url">Imagen Urk</label>
-                            <input type="text" class="form-control" id="ImagenUrl" placeholder="Ingresar Url..." #url> 
+                            <input type="text" class="form-control" id="ImagenUrl" placeholder="Ingresar Url..." #url>
                         </div>
-                        <button type="submit" class="btn btn-primary"(click)="guardar(nombre.value,url.value)" >Guardar</button>
+                        <button type="submit" class="btn btn-primary"
+                            (click)="guardar(nombre.value,url.value)">Guardar</button>
                     </form>
                 </div>
             </div>
@@ -29,6 +31,11 @@
 
 
     <div class="row row-flex">
-        <app-destino-subir *ngFor="let r of rangos" [rango]="r"></app-destino-subir>
+        <app-destino-subir
+            *ngFor="let r of rangos; let i=index" 
+            [rango]="r"
+            (clicked)="elegido(r)"
+            [position]="i+1"
+            ></app-destino-subir>
     </div>
 </div>

@@ -16,7 +16,11 @@ export class ListaRangosComponent {
   guardar(nombre: string, url:string ): boolean{
     this.rangos.push(new DestinoRango(nombre, url));
     return false;
+  }
 
+  elegido(rango: DestinoRango) {
+    this.rangos.forEach(x => x.setSelected(false));
+    rango.setSelected(true);
   }
 
 }
